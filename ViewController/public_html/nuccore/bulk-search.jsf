@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="bulk-search.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="500">
+                <f:facet name="first">
+                    <af:panelSplitter id="ps1" splitterPosition="400">
+                        <f:facet name="first">
+                            <af:panelHeader text="Nucleotide" id="ph1">
+                                <af:table id="md1" rows="#{bindings.PerSessionLocusId1.rangeSize}"
+                                          fetchSize="#{bindings.PerSessionLocusId1.rangeSize}"
+                                          emptyText="#{bindings.PerSessionLocusId1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          var="row" value="#{bindings.PerSessionLocusId1.collectionModel}"
+                                          rowBandingInterval="1"
+                                          selectedRowKeys="#{bindings.PerSessionLocusId1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.PerSessionLocusId1.collectionModel.makeCurrent}"
+                                          rowSelection="single" partialTriggers="::b1">
+                                    <af:column headerText="#{bindings.PerSessionLocusId1.hints.Definition.label}"
+                                               id="c8" width="300">
+                                        <af:inputText value="#{row.bindings.Definition.inputValue}"
+                                                      label="#{bindings.PerSessionLocusId1.hints.Definition.label}"
+                                                      required="#{bindings.PerSessionLocusId1.hints.Definition.mandatory}"
+                                                      columns="#{bindings.PerSessionLocusId1.hints.Definition.displayWidth}"
+                                                      maximumLength="#{bindings.PerSessionLocusId1.hints.Definition.precision}"
+                                                      shortDesc="#{bindings.PerSessionLocusId1.hints.Definition.tooltip}"
+                                                      id="it2">
+                                            <f:validator binding="#{row.bindings.Definition.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="Locus"
+                                               sortProperty="#{bindings.PerSessionLocusId1.hints.LocusId.name}"
+                                               sortable="false" id="c5" width="100">
+                                        <af:outputText value="#{row.LocusId}"
+                                                       shortDesc="#{bindings.PerSessionLocusId1.hints.LocusId.tooltip}"
+                                                       id="ot5"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.PerSessionLocusId1.hints.AppSessionId.label}"
+                                               sortProperty="#{bindings.PerSessionLocusId1.hints.AppSessionId.name}"
+                                               sortable="false" id="c6" rendered="false">
+                                        <af:outputText value="#{row.AppSessionId}"
+                                                       shortDesc="#{bindings.PerSessionLocusId1.hints.AppSessionId.tooltip}"
+                                                       id="ot6"/>
+                                    </af:column>
+                                    <af:column headerText="GI"
+                                               sortProperty="#{bindings.PerSessionLocusId1.hints.GiId.name}"
+                                               sortable="false" id="c7" width="100">
+                                        <af:outputText value="#{row.GiId}"
+                                                       shortDesc="#{bindings.PerSessionLocusId1.hints.GiId.tooltip}"
+                                                       id="ot7"/>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelHeader text="Pubmed references" id="ph2">
+                                <af:table rows="#{bindings.PubMedEntryChildVo2.rangeSize}"
+                                          fetchSize="#{bindings.PubMedEntryChildVo2.rangeSize}"
+                                          emptyText="#{bindings.PubMedEntryChildVo2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          var="row" value="#{bindings.PubMedEntryChildVo2.collectionModel}"
+                                          rowBandingInterval="1"
+                                          selectedRowKeys="#{bindings.PubMedEntryChildVo2.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.PubMedEntryChildVo2.collectionModel.makeCurrent}"
+                                          rowSelection="none" id="t2" columnStretching="last"
+                                          columnBandingInterval="0" partialTriggers="::b1">
+                                    <af:column headerText="Pubmed ID"
+                                               sortProperty="#{bindings.PubMedEntryChildVo2.hints.PubmedId.name}"
+                                               sortable="false" id="c9">
+                                        <af:outputText id="ot9" value="#{row.PubmedId}"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.PubMedEntryChildVo2.hints.LocusId.label}"
+                                               sortProperty="#{bindings.PubMedEntryChildVo2.hints.LocusId.name}"
+                                               sortable="false" id="c10" rendered="false">
+                                        <af:outputText value="#{row.LocusId}"
+                                                       shortDesc="#{bindings.PubMedEntryChildVo2.hints.LocusId.tooltip}"
+                                                       id="ot10"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.PubMedEntryChildVo2.hints.Organism.label}"
+                                               id="c12" width="150">
+                                        <af:inputText value="#{row.bindings.Organism.inputValue}"
+                                                      label="#{bindings.PubMedEntryChildVo2.hints.Organism.label}"
+                                                      required="#{bindings.PubMedEntryChildVo2.hints.Organism.mandatory}"
+                                                      columns="#{bindings.PubMedEntryChildVo2.hints.Organism.displayWidth}"
+                                                      maximumLength="#{bindings.PubMedEntryChildVo2.hints.Organism.precision}"
+                                                      shortDesc="#{bindings.PubMedEntryChildVo2.hints.Organism.tooltip}"
+                                                      id="it1">
+                                            <f:validator binding="#{row.bindings.Organism.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.PubMedEntryChildVo2.hints.Title.label}"
+                                               sortProperty="#{bindings.PubMedEntryChildVo2.hints.Title.name}"
+                                               sortable="false" id="c11">
+                                        <af:outputText value="#{row.Title}"
+                                                       shortDesc="#{bindings.PubMedEntryChildVo2.hints.Title.tooltip}"
+                                                       id="ot11"/>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelHeader text="Saved searches" id="ph3">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar">
+                            <af:button text="New Search" id="b1" immediate="true" windowEmbedStyle="inlineDocument"
+                                       windowModalityType="applicationModal" action="new" useWindow="true">
+                                <af:showPopupBehavior popupId="p1" triggerType="click"/>
+                            </af:button>
+                            <af:spacer width="10" height="40" id="s4"/>
+                        </f:facet>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:table value="#{bindings.NihNuucoreSessionView1.collectionModel}" var="row"
+                                  rows="#{bindings.NihNuucoreSessionView1.rangeSize}"
+                                  emptyText="#{bindings.NihNuucoreSessionView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="1"
+                                  selectedRowKeys="#{bindings.NihNuucoreSessionView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.NihNuucoreSessionView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.NihNuucoreSessionView1.rangeSize}" id="t1"
+                                  partialTriggers="::b1">
+                            <af:column headerText="#{bindings.NihNuucoreSessionView1.hints.NuucoreSessionId.label}"
+                                       id="c1" width="101" rendered="false">
+                                <af:outputText value="#{row.NuucoreSessionId}"
+                                               shortDesc="#{bindings.NihNuucoreSessionView1.hints.NuucoreSessionId.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.NihNuucoreSessionView1.hints.NuucoreSessionId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.NihNuucoreSessionView1.hints.AppSessionId.label}" id="c2"
+                                       width="99" rendered="false">
+                                <af:outputText value="#{row.AppSessionId}"
+                                               shortDesc="#{bindings.NihNuucoreSessionView1.hints.AppSessionId.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.NihNuucoreSessionView1.hints.Description.label}" id="c3"
+                                       width="100" rendered="true">
+                                <af:outputText value="#{row.Description}"
+                                               shortDesc="#{bindings.NihNuucoreSessionView1.hints.Description.tooltip}"
+                                               id="ot3"/>
+                            </af:column>
+                            <af:column headerText="Date/Time" id="c4" width="175">
+                                <af:outputText value="#{row.CreateDate}"
+                                               shortDesc="#{bindings.NihNuucoreSessionView1.hints.CreateDate.tooltip}"
+                                               id="ot4">
+                                    <af:convertDateTime pattern="#{bindings.NihNuucoreSessionView1.hints.CreateDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelHeader>
+                </f:facet>
+            </af:panelSplitter>
+            <af:panelGroupLayout id="pgl1">
+                <af:spacer width="10" height="10" id="s3"/>
+                <af:spacer width="10" height="10" id="s1"/>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

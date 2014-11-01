@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="bulk_searchPageDef"
+                Package="nuccore">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NihNuucoreSessionView1" RangeSize="25" DataControl="NIHAppModuleDataControl"
+              id="NihNuucoreSessionView1Iterator" Refresh="deferred"/>
+    <iterator Binds="PerSessionLocusId1" RangeSize="25" DataControl="NIHAppModuleDataControl"
+              id="PerSessionLocusId1Iterator"/>
+    <iterator Binds="PubMedEntryChildVo2" RangeSize="25" DataControl="NIHAppModuleDataControl"
+              id="PubMedEntryChildVo2Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="NihNuucoreSessionView1Iterator" id="NihNuucoreSessionView1">
+      <nodeDefinition DefName="com.adfhomebrew.ncbi.model.view.update.NihNuucoreSessionView"
+                      Name="NihNuucoreSessionView10">
+        <AttrNames>
+          <Item Value="NuucoreSessionId"/>
+          <Item Value="AppSessionId"/>
+          <Item Value="Description"/>
+          <Item Value="CreateDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="PerSessionLocusId1Iterator" id="PerSessionLocusId1">
+      <nodeDefinition DefName="com.adfhomebrew.ncbi.model.view.PerSessionLocusId" Name="PerSessionLocusId10">
+        <AttrNames>
+          <Item Value="LocusId"/>
+          <Item Value="AppSessionId"/>
+          <Item Value="GiId"/>
+          
+        
+          <Item Value="Definition"/></AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="PubMedEntryChildVo2Iterator" id="PubMedEntryChildVo2">
+      <nodeDefinition DefName="com.adfhomebrew.ncbi.model.view.PubMedEntryChildVo" Name="PubMedEntryChildVo20">
+        <AttrNames>
+          <Item Value="PubmedId"/>
+          <Item Value="LocusId"/>
+          <Item Value="Title"/>
+          <Item Value="Organism"/>
+          
+          
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

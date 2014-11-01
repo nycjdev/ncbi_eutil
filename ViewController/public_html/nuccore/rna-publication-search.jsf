@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="rna-publication-search.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:inputText label="Target RNAs for Search (Locus ID)" id="it1"
+                              binding="#{NUCCoreSearchBean.searchField}" rows="10"/>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:panelGroupLayout id="pgl1">
+                <af:panelSplitter id="ps1" splitterPosition="400">
+                    <f:facet name="first">
+                        <af:panelHeader text="RNA" id="ph1">
+                            <af:table id="md1" rows="#{bindings.NihNuccoreRnaView1.rangeSize}"
+                                      fetchSize="#{bindings.NihNuccoreRnaView1.rangeSize}"
+                                      emptyText="#{bindings.NihNuccoreRnaView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      var="row" value="#{bindings.NihNuccoreRnaView1.collectionModel}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.NihNuccoreRnaView1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.NihNuccoreRnaView1.collectionModel.makeCurrent}"
+                                      rowSelection="single" partialTriggers="::refresh" columnStretching="last">
+                                <af:column headerText="#{bindings.NihNuccoreRnaView1.hints.LocusId.label}"
+                                           sortProperty="#{bindings.NihNuccoreRnaView1.hints.LocusId.name}"
+                                           sortable="false" id="c1">
+                                    <af:outputText value="#{row.LocusId}"
+                                                   shortDesc="#{bindings.NihNuccoreRnaView1.hints.LocusId.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.NihNuccoreRnaView1.hints.GiId.label}"
+                                           sortProperty="#{bindings.NihNuccoreRnaView1.hints.GiId.name}"
+                                           sortable="false" id="c2">
+                                    <af:outputText value="#{row.GiId}"
+                                                   shortDesc="#{bindings.NihNuccoreRnaView1.hints.GiId.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.NihNuccoreRnaView1.hints.CreateDate.label}"
+                                           sortProperty="#{bindings.NihNuccoreRnaView1.hints.CreateDate.name}"
+                                           sortable="false" id="c4">
+                                    <af:outputText value="#{row.CreateDate}"
+                                                   shortDesc="#{bindings.NihNuccoreRnaView1.hints.CreateDate.tooltip}"
+                                                   id="ot4">
+                                        <af:convertDateTime pattern="#{bindings.NihNuccoreRnaView1.hints.CreateDate.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.NihNuccoreRnaView1.hints.Definition.label}"
+                                           sortProperty="#{bindings.NihNuccoreRnaView1.hints.Definition.name}"
+                                           sortable="false" id="c3">
+                                    <af:outputText value="#{row.Definition}"
+                                                   shortDesc="#{bindings.NihNuccoreRnaView1.hints.Definition.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelHeader>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelHeader text="RNA Publication Reference" id="ph2">
+                            <af:table rows="#{bindings.PubMedEntryChildVo1.rangeSize}"
+                                      fetchSize="#{bindings.PubMedEntryChildVo1.rangeSize}"
+                                      emptyText="#{bindings.PubMedEntryChildVo1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      var="row" value="#{bindings.PubMedEntryChildVo1.collectionModel}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.PubMedEntryChildVo1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.PubMedEntryChildVo1.collectionModel.makeCurrent}"
+                                      rowSelection="single" id="t1" partialTriggers="::refresh" columnStretching="last">
+                                <af:column headerText="#{bindings.PubMedEntryChildVo1.hints.PubmedId.label}"
+                                           sortProperty="#{bindings.PubMedEntryChildVo1.hints.PubmedId.name}"
+                                           sortable="false" id="c5">
+                                    <af:outputText value="#{row.PubmedId}"
+                                                   shortDesc="#{bindings.PubMedEntryChildVo1.hints.PubmedId.tooltip}"
+                                                   id="ot5"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.PubMedEntryChildVo1.hints.LocusId.label}"
+                                           sortProperty="#{bindings.PubMedEntryChildVo1.hints.LocusId.name}"
+                                           sortable="false" id="c6" rendered="false">
+                                    <af:outputText value="#{row.LocusId}"
+                                                   shortDesc="#{bindings.PubMedEntryChildVo1.hints.LocusId.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.PubMedEntryChildVo1.hints.Title.label}"
+                                           sortProperty="#{bindings.PubMedEntryChildVo1.hints.Title.name}"
+                                           sortable="false" id="c7">
+                                    <af:outputText value="#{row.Title}"
+                                                   shortDesc="#{bindings.PubMedEntryChildVo1.hints.Title.tooltip}"
+                                                   id="ot7"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelHeader>
+                    </f:facet>
+                </af:panelSplitter>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="60" id="s1"/>
+            <af:button actionListener="#{NUCCoreSearchBean.refresh}" text="Refresh" id="refresh" partialSubmit="true"/>
+        </af:form>
+    </af:document>
+</f:view>

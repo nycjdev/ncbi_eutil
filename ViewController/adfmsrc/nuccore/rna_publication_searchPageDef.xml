@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="rna_publication_searchPageDef"
+                Package="nuccore">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NihNuccoreRnaView1" RangeSize="25" DataControl="NIHAppModuleDataControl"
+              id="NihNuccoreRnaView1Iterator"/>
+    <iterator Binds="PubMedEntryChildVo1" RangeSize="25" DataControl="NIHAppModuleDataControl"
+              id="PubMedEntryChildVo1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="NihNuccoreRnaView1Iterator" id="NihNuccoreRnaView1">
+      <nodeDefinition DefName="com.adfhomebrew.ncbi.model.view.update.NihNuccoreRnaView" Name="NihNuccoreRnaView10">
+        <AttrNames>
+          <Item Value="LocusId"/>
+          <Item Value="GiId"/>
+          <Item Value="Definition"/>
+          <Item Value="CreateDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="PubMedEntryChildVo1Iterator" id="PubMedEntryChildVo1">
+      <nodeDefinition DefName="com.adfhomebrew.ncbi.model.view.PubMedEntryChildVo" Name="PubMedEntryChildVo10">
+        <AttrNames>
+          <Item Value="PubmedId"/>
+          <Item Value="LocusId"/>
+          <Item Value="Title"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="syncEFetchData" RequiresUpdateModel="true" Action="invokeMethod" MethodName="syncEFetchData"
+                  IsViewObjectMethod="false" DataControl="NIHAppModuleDataControl"
+                  InstanceName="data.NIHAppModuleDataControl.dataProvider"
+                  ReturnName="data.NIHAppModuleDataControl.methodResults.syncEFetchData_NIHAppModuleDataControl_dataProvider_syncEFetchData_result">
+      <NamedData NDName="targets" NDType="java.lang.String[]"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

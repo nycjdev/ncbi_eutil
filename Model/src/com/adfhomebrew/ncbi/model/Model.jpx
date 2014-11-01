@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Model"
+  Version="12.1.3.10.8"
+  SeparateXMLFiles="true"
+  PackageName="com.adfhomebrew.ncbi.model">
+  <DesignTime>
+    <Attr Name="_useAnsiJoinSyntax" Value="true"/>
+    <Attr Name="_jprName" Value="../../../../../Model.jpr"/>
+    <Attr Name="_jbo.SQLBuilder" Value="SQL92"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="Java"/>
+    <Attr Name="_NamedConnection" Value="adfhomebrew_local"/>
+    <Attr Name="_appModuleNames0" Value="com.adfhomebrew.ncbi.model.NIHAppModule"/>
+    <Attr Name="_domainNames0" Value="com.adfhomebrew.ncbi.model.AutoIncrementPropertySet"/>
+    <Attr Name="_propSetNames0" Value="com.adfhomebrew.ncbi.model.AutoIncrementPropertySet"/>
+    <Attr Name="_domainNames1" Value="com.adfhomebrew.ncbi.model.view.Type"/>
+  </DesignTime>
+  <Containee
+    Name="entity"
+    PackageName="com.adfhomebrew.ncbi.model.entity"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="model"
+    PackageName="com.adfhomebrew.ncbi.model"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+      <Attr Name="_DO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="link"
+    PackageName="com.adfhomebrew.ncbi.model.view.link"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="update"
+    PackageName="com.adfhomebrew.ncbi.model.view.update"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="view"
+    PackageName="com.adfhomebrew.ncbi.model.view"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+      <Attr Name="_DO" Value="true"/>
+    </DesignTime>
+  </Containee>
+</JboProject>

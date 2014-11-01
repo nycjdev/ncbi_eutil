@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NihPubmedEntryView"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="NihPubmedEntry"
+    Entity="com.adfhomebrew.ncbi.model.entity.NihPubmedEntry"/>
+  <ViewAttribute
+    Name="PubmedId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PubmedId"
+    EntityUsage="NihPubmedEntry"
+    AliasName="pubmed_id"/>
+  <ViewAttribute
+    Name="Title"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="NihPubmedEntry"
+    AliasName="title"/>
+  <ViewAttribute
+    Name="CreateDate"
+    PrecisionRule="true"
+    EntityAttrName="CreateDate"
+    EntityUsage="NihPubmedEntry"
+    AliasName="create_date"/>
+  <ViewAttribute
+    Name="PubmedEntryId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    Domain="com.adfhomebrew.ncbi.model.AutoIncrementPropertySet"
+    EntityAttrName="PubmedEntryId"
+    EntityUsage="NihPubmedEntry"
+    AliasName="pubmed_entry_id"/>
+  <ViewAttribute
+    Name="AppSessionId"
+    PrecisionRule="true"
+    EntityAttrName="AppSessionId"
+    EntityUsage="NihPubmedEntry"
+    AliasName="app_session_id"/>
+  <ViewAttribute
+    Name="Definition"
+    PrecisionRule="true"
+    EntityAttrName="Definition"
+    EntityUsage="NihPubmedEntry"
+    AliasName="definition"/>
+  <ViewAttribute
+    Name="Organism"
+    PrecisionRule="true"
+    EntityAttrName="Organism"
+    EntityUsage="NihPubmedEntry"
+    AliasName="organism"/>
+</ViewObject>

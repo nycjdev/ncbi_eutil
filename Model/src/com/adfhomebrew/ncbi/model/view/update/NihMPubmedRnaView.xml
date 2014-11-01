@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NihMPubmedRnaView"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="NihMPubmedRna"
+    Entity="com.adfhomebrew.ncbi.model.entity.NihMPubmedRna"/>
+  <ViewAttribute
+    Name="PubmedRnaId"
+    PrecisionRule="true"
+    EntityAttrName="PubmedRnaId"
+    EntityUsage="NihMPubmedRna"
+    AliasName="pubmed_rna_id"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="LocusId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LocusId"
+    EntityUsage="NihMPubmedRna"
+    AliasName="locus_id"/>
+  <ViewAttribute
+    Name="PubmedId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PubmedId"
+    EntityUsage="NihMPubmedRna"
+    AliasName="pubmed_id"/>
+  <ViewAttribute
+    Name="CreateDate"
+    PrecisionRule="true"
+    EntityAttrName="CreateDate"
+    EntityUsage="NihMPubmedRna"
+    AliasName="create_date"/>
+  <ViewAttribute
+    Name="AppSessionId"
+    PrecisionRule="true"
+    EntityAttrName="AppSessionId"
+    EntityUsage="NihMPubmedRna"
+    AliasName="app_session_id"/>
+</ViewObject>

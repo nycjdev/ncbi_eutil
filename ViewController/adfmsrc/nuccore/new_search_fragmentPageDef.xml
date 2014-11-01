@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="new_search_fragmentPageDef"
+                Package="nuccore">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NihNuucoreSessionView1" RangeSize="25" DataControl="NIHAppModuleDataControl"
+              id="NihNuucoreSessionView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="NihNuucoreSessionView1Iterator" id="NuucoreSessionId">
+      <AttrNames>
+        <Item Value="NuucoreSessionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NihNuucoreSessionView1Iterator" id="AppSessionId">
+      <AttrNames>
+        <Item Value="AppSessionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NihNuucoreSessionView1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NihNuucoreSessionView1Iterator" id="CreateDate">
+      <AttrNames>
+        <Item Value="CreateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="syncEFetchData" RequiresUpdateModel="true" Action="invokeMethod" MethodName="syncEFetchData"
+                  IsViewObjectMethod="false" DataControl="NIHAppModuleDataControl"
+                  InstanceName="data.NIHAppModuleDataControl.dataProvider"
+                  ReturnName="data.NIHAppModuleDataControl.methodResults.syncEFetchData_NIHAppModuleDataControl_dataProvider_syncEFetchData_result">
+      <NamedData NDName="targets" NDType="java.lang.String[]"/>
+      <NamedData NDName="sessionId" NDType="java.lang.String"/>
+    </methodAction>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="NIHAppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

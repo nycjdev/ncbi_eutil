@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NIHAppModule"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.adfhomebrew.ncbi.model.NIHAppModuleImpl"
+  ComponentInterface="com.adfhomebrew.ncbi.model.common.NIHAppModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="NihNuucoreSessionView1"
+    ViewObjectName="com.adfhomebrew.ncbi.model.view.update.NihNuucoreSessionView"/>
+  <ViewUsage
+    Name="PerSessionLocusId1"
+    ViewObjectName="com.adfhomebrew.ncbi.model.view.PerSessionLocusId"/>
+  <ViewUsage
+    Name="PubMedEntryChildVo2"
+    ViewObjectName="com.adfhomebrew.ncbi.model.view.PubMedEntryChildVo"/>
+  <ViewUsage
+    Name="NihMPubmedRnaView1"
+    ViewObjectName="com.adfhomebrew.ncbi.model.view.update.NihMPubmedRnaView"/>
+  <ViewUsage
+    Name="NihNuccoreRnaView1"
+    ViewObjectName="com.adfhomebrew.ncbi.model.view.update.NihNuccoreRnaView"/>
+  <ViewUsage
+    Name="NihPubmedEntryView1"
+    ViewObjectName="com.adfhomebrew.ncbi.model.view.update.NihPubmedEntryView"/>
+  <ViewLinkUsage
+    Name="AllSessionToPerSessionVl1"
+    ViewLinkObjectName="com.adfhomebrew.ncbi.model.view.link.AllSessionToPerSessionVl"
+    SrcViewUsageName="com.adfhomebrew.ncbi.model.NIHAppModule.NihNuucoreSessionView1"
+    DstViewUsageName="com.adfhomebrew.ncbi.model.NIHAppModule.PerSessionLocusId1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="PerSessionToPubMedEntryChildVl1"
+    ViewLinkObjectName="com.adfhomebrew.ncbi.model.view.link.PerSessionToPubMedEntryChildVl"
+    SrcViewUsageName="com.adfhomebrew.ncbi.model.NIHAppModule.PerSessionLocusId1"
+    DstViewUsageName="com.adfhomebrew.ncbi.model.NIHAppModule.PubMedEntryChildVo2"
+    Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="syncEFetchData"
+      MethodName="syncEFetchData">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="targets"
+        Type="java.lang.String[]"/>
+      <Parameter
+        Name="sessionId"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

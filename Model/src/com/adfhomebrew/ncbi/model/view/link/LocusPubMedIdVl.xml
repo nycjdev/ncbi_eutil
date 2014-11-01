@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LocusPubMedIdVl"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.adfhomebrew.ncbi.model.view.link.LocusPubMedIdVl_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="NihNuccoreRnaView"
+    Cardinality="1"
+    Source="true"
+    Owner="com.adfhomebrew.ncbi.model.view.update.NihNuccoreRnaView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="NihNuccoreRnaView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.adfhomebrew.ncbi.model.view.update.NihNuccoreRnaView.LocusId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="PubMedEntryChildVo"
+    Cardinality="-1"
+    Owner="com.adfhomebrew.ncbi.model.view.PubMedEntryChildVo">
+    <DesignTime>
+      <Attr Name="_finderName" Value="PubMedEntryChildVo"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.adfhomebrew.ncbi.model.view.PubMedEntryChildVo.LocusId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.adfhomebrew.ncbi.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>
