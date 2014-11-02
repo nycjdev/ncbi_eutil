@@ -1,9 +1,0 @@
-calling rollback will result in:
-http://docs.oracle.com/cd/E19879-01/820-4336/gbxjp/index.html
-
-MySQL always starts a new connection when autoCommit==true is set. This ensures that each SQL statement forms a single transaction on its own. If you try to rollback or commit an SQL statement, you get an error message.
-
-calling getdbtransaction.commit will result in
-Unable to set request character encoding to UTF-8 from context /home, because request parameters hav... (details)
-
-which then skips the rest of the code
